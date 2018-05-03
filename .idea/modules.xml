@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/McOnlyBot.iml" filepath="$PROJECT_DIR$/McOnlyBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/McOnlyBot_main.iml" filepath="$PROJECT_DIR$/.idea/modules/McOnlyBot_main.iml" group="McOnlyBot" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/McOnlyBot_test.iml" filepath="$PROJECT_DIR$/.idea/modules/McOnlyBot_test.iml" group="McOnlyBot" />
+    </modules>
+  </component>
+</project>
