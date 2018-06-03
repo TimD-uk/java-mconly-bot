@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/McOnlyBot.iml" filepath="$PROJECT_DIR$/McOnlyBot.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/McOnlyBot_main.iml" filepath="$PROJECT_DIR$/.idea/modules/McOnlyBot_main.iml" group="McOnlyBot" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/McOnlyBot_test.iml" filepath="$PROJECT_DIR$/.idea/modules/McOnlyBot_test.iml" group="McOnlyBot" />
+      <module fileurl="file://$PROJECT_DIR$/src/test/test.iml" filepath="$PROJECT_DIR$/src/test/test.iml" group="McOnlyBot" />
     </modules>
   </component>
 </project>

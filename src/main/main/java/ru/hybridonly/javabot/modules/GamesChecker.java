@@ -1,6 +1,7 @@
 package main.java.ru.hybridonly.javabot.modules;
 
-import main.java.ru.hybridonly.javabot.log;
+import main.java.ru.hybridonly.javabot.Data.Manager;
+import main.java.ru.hybridonly.javabot.Utils.Log;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.entities.Role;
@@ -13,13 +14,11 @@ import org.json.simple.parser.ParseException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class gamesChecker extends ListenerAdapter
+public class GamesChecker extends ListenerAdapter
 {
     public void onUserUpdateGame(UserUpdateGameEvent e)
     {
@@ -36,7 +35,7 @@ public class gamesChecker extends ListenerAdapter
             {
                 Role role = (Role) r;
                 e.getGuild().getController().addSingleRoleToMember(e.getMember(), role).queue();
-                log.info("The user '" + e.getUser().getId() + "' was given the game role of '" + role.getName() + "' for game '" + game.getName() + "'");
+                Log.info("The user '" + e.getUser().getId() + "' was given the game role of '" + role.getName() + "' for game '" + game.getName() + "'");
             }
         }
     }
@@ -97,21 +96,13 @@ public class gamesChecker extends ListenerAdapter
 
     private boolean checkUserAllow(UserUpdateGameEvent event)
     {
-
-        ResultSet result = mysql.get().select("*", "userData_" + event.getMember().getGuild().getId());
-
-        try {
-            while (result.next())
+        if (Manager.get().serversUsers.containsKey(event.getGuild().getId()))
+        {
+            if (Manager.get().serversUsers.get(event.getGuild().getId()).containsKey(event.getUser().getId()))
             {
-                if (result.getString("user_id").equals(event.getUser().getId()))
-                {
-                    return result.getBoolean("allow_games");
-                }
+                return Manager.get().serversUsers.get(event.getGuild().getId()).get(event.getUser().getId()).allow_games;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-
-        return true;
+        return false;
     }
 }

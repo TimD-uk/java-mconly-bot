@@ -35,5 +35,6 @@ dependencies {
     compile('org.slf4j:slf4j-api:1.7.9')
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: 'r05'
-
+    // https://mvnrepository.com/artifact/org.quartz-scheduler/quartz
+    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.2.1'
 }

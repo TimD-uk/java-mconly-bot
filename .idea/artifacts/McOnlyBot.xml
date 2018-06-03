@@ -36,8 +36,13 @@
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.25/da76ca59f6a57ee3102f8f9bd9cee742973efa8a/slf4j-api-1.7.25.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-simple/1.7.9/f918aa891c5402deb6b4dc82862699bb82602a2e/slf4j-simple-1.7.9.jar" path-in-jar="/" />
       <element id="module-output" name="McOnlyBot_main" />
-      <element id="directory" name="resources">
-        <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/c3p0/c3p0/0.9.1.1/302704f30c6e7abb7a0457f7771739e03c973e80/c3p0-0.9.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/r05/97fd3078118f05895ba5c3a95f3c335e2a2f34d/guava-r05.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.quartz-scheduler/quartz/2.2.1/2bd17ec0c66d0370a932e225f52c23f3dc7cc4ce/quartz-2.2.1.jar" path-in-jar="/" />
+      <element id="directory" name="main">
+        <element id="directory" name="resources">
+          <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+        </element>
       </element>
     </root>
   </artifact>

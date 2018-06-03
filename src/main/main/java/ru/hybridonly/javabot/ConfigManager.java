@@ -1,13 +1,18 @@
 package main.java.ru.hybridonly.javabot;
 
 
+import main.java.ru.hybridonly.javabot.Utils.Log;
+import org.apache.commons.io.FileUtils;
+
 import java.io.*;
+import java.net.URL;
 import java.util.Properties;
 
-public class configManager {
-    private static configManager instance = new configManager();
+public class ConfigManager
+{
+    private static ConfigManager instance = new ConfigManager();
 
-    public static configManager get()
+    public static ConfigManager get()
     {
         return instance;
     }
@@ -19,10 +24,11 @@ public class configManager {
     private File configFile = new File("conf.properties");
     private File gamesJson = new File("games.json");
 
-    public void setup() {
+    public void setup()
+    {
         if (!configFile.exists()) {
             try {
-                os = new FileOutputStream(configFile);
+                os = new FileOutputStream(configFile);//TODO добавить комменты к каждому из блоков
                 prop.setProperty("TOKEN", "PUT YOUR TOKEN HERE");
                 prop.setProperty("PREFIX", "$");
                 prop.setProperty("DBHOST", "PUT HOST NAME HERE");
@@ -38,23 +44,25 @@ public class configManager {
 
         if (!gamesJson.exists())
         {
-            String path = "resources/games.json";
-            try (InputStream in = getClass().getClassLoader().getResourceAsStream(path);
-                 OutputStream out = new FileOutputStream(gamesJson))
+            String path = "main/resources/games.json";
+            String path2 = "games.json";
+            try
             {
-
-                int data;
-                while ((data = in.read()) != -1) {
-                    out.write(data);
+                URL inputUrl = getClass().getClassLoader().getResource(path);
+                OutputStream out = new BufferedOutputStream(new FileOutputStream(gamesJson));
+                if(inputUrl == null) {
+                    inputUrl = getClass().getClassLoader().getResource(path2);
+                    if (inputUrl == null)
+                        throw new IOException("Cannot get resource \"games.json\" from Jar file.");
                 }
-                log.info("Game's file was created");
-            }
-            catch (IOException exc) {
+                FileUtils.copyURLToFile(inputUrl, gamesJson);
+                Log.ainfo("Game's file was created");
+            } catch (IOException exc) {
                 exc.printStackTrace();
             }
         }
     }
-
+//TODO добавление в конфиг включения и отключения модулей (глобально)
 
     public void load()
     {
