@@ -14,5 +14,5 @@
 - 24 hours 7 days for a week **Music Bot**
 - Play music from vk.com
 
-##UPD 21.10.2018:
+## UPD 21.10.2018:
 Development stopped and will not be resumed
